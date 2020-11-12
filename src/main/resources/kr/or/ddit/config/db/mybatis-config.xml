@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias alias="alarmVO" type="kr.or.ddit.common.vo.AlarmVO"/>
+		<typeAlias alias="answerVO" type="kr.or.ddit.common.vo.AnswerVO"/>
+		<typeAlias alias="atchFileVO" type="kr.or.ddit.common.vo.AtchFileVO"/>
+		<typeAlias alias="boardVO" type="kr.or.ddit.common.vo.BoardVO"/>
+		<typeAlias alias ="ChatVO" type="kr.or.ddit.common.vo.ChatVO"/>
+		<typeAlias alias="driveVO" type="kr.or.ddit.common.vo.DriveVO"/>
+		<typeAlias alias="enterVO" type="kr.or.ddit.common.vo.EnterVO"/>
+		<typeAlias alias="managerVO" type="kr.or.ddit.common.vo.ManagerVO"/>
+		<typeAlias alias="memberVO" type="kr.or.ddit.common.vo.MemberVO"/>
+		<typeAlias alias="memoVO" type="kr.or.ddit.common.vo.MemoVO"/>
+		<typeAlias alias="noticeVO" type="kr.or.ddit.common.vo.NoticeVO"/>
+		<typeAlias alias="planuseVO" type="kr.or.ddit.common.vo.PlanUseVO"/>
+		<typeAlias alias="planVO" type="kr.or.ddit.common.vo.PlanVO"/>
+		<typeAlias alias="qnaVO" type="kr.or.ddit.common.vo.QnaVO"/>
+		<typeAlias alias="replyVO" type="kr.or.ddit.common.vo.ReplyVO"/>
+		<typeAlias alias="roomVO" type="kr.or.ddit.common.vo.RoomVO"/>
+		<typeAlias alias="useVO" type="kr.or.ddit.common.vo.UseVO"/>
+	</typeAliases>
+  <mappers>
+<!--     <mapper resource="kr/or/ddit/config/db/mapper/alarm.xml"/> -->
+<!--     <mapper resource="kr/or/ddit/config/db/mapper/answer.xml"/> -->
+<!--     <mapper resource="kr/or/ddit/config/db/mapper/atchFile.xml"/> -->
+<!--     <mapper resource="kr/or/ddit/config/db/mapper/board.xml"/> -->
+<!--     <mapper resource="kr/or/ddit/config/db/mapper/chat.xml"/> -->
+<!--     <mapper resource="kr/or/ddit/config/db/mapper/drive.xml"/> -->
+    <mapper resource="kr/or/ddit/config/db/mapper/member.xml"/>
+<!--     <mapper resource="kr/or/ddit/config/db/mapper/memo.xml"/> -->
+<!--     <mapper resource="kr/or/ddit/config/db/mapper/notice.xml"/> -->
+<!--     <mapper resource="kr/or/ddit/config/db/mapper/plan.xml"/> -->
+<!--     <mapper resource="kr/or/ddit/config/db/mapper/planuse.xml"/> -->
+<!--     <mapper resource="kr/or/ddit/config/db/mapper/qna.xml"/> -->
+<!--     <mapper resource="kr/or/ddit/config/db/mapper/reply.xml"/> -->
+<!--     <mapper resource="kr/or/ddit/config/db/mapper/room.xml"/> -->
+  </mappers>
+</configuration>
