@@ -28,7 +28,7 @@
 
 	$(function() {
 		
-			memId = "${S_MEMBER.mem_id}"
+			memId = "<%=mv.getMem_id()%>"
 		
 		$('.panel-title').mousedown(function() {
 			event.stopPropagation()
@@ -50,7 +50,7 @@
 			$('.contextmenu').hide();
 			
 			event.stopPropagation()
-			memId = "${S_MEMBER.mem_id}"
+			memId = "<%=mv.getMem_id()%>"
 			location.href="/ourbox/RoomDeleteController?roomSeq=" + roomSeq+"&memId="+memId;
 			parent.document.location.reload()// 새로고침
 		})
@@ -96,7 +96,7 @@
 		%> 
 		<tr>
 			<td>
-			<a class = "panel-title" roomSeq="<%=rv.getRoom_seq()%>" href="/ourbox/view/ourbox/group.jsp?roomSeq=<%=rv.getRoom_seq()%>&memId=${S_MEMBER.mem_id}" target="ifr">
+			<a class = "panel-title" roomSeq="<%=rv.getRoom_seq()%>" href="/ourbox/view/ourbox/group.jsp?roomSeq=<%=rv.getRoom_seq()%>&memId=<%=mem_id %>" target="ifr">
 			<img alt="그룹아이콘.png" src="/ourbox/images/그룹아이콘.png">
 			<span class="bold"><%=rv.getRoom_name()%></span>
 			</a></td>

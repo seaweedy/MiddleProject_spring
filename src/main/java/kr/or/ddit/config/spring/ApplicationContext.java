@@ -207,5 +207,7 @@ public class ApplicationContext extends WebMvcConfigurerAdapter{
 			.addResourceLocations("/WEB-INF/views/error/");
 		registry.addResourceHandler("/images/**")
 		.addResourceLocations("/WEB-INF/images/");
+		registry.addResourceHandler("/lay/**")
+		.addResourceLocations("/WEB-INF/views/layout/");
 	}
 }

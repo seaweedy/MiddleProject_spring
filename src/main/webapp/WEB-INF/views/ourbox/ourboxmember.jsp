@@ -321,7 +321,9 @@
     <aside id="left">
 		 
 		<div id="memProfile">
-			<iframe src ="/ourbox/MemProfileController?memId=${S_MEMBER.mem_id}" name="profile" id="profile"></iframe>
+<%-- 			<iframe src ="/ourbox/MemProfileController?memId=${S_MEMBER.mem_id}" name="profile" id="profile"></iframe> --%>
+			<%@ include file="/WEB-INF/views/layout/profile.jsp" %>
+			
 		</div>	
 
         <div id="leftMenu">
