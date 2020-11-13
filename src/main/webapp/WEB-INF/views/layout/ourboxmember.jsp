@@ -65,7 +65,7 @@
 		
 		$('#groupadd').on('click',function(){
 			
-			window.open("/room/insertRoomView?memberVo=${S_MEMBER.mem_id}", "그룹추가", "width = 450, height = 200, top = 100, left = 200, location = no");
+			window.open("<%=request.getContextPath()%>/view/room/insertRoomForm.jsp?memId=%{S_MEMBER.mem_id}", "그룹추가", "width = 450, height = 200, top = 100, left = 200, location = no");
 			
 		})
 		
@@ -332,10 +332,12 @@
        		<a href="/ourbox/noticeList" target="ifr"><img alt="시작하기아이콘.png" src="/images/시작하기아이콘.png"><span class="bold sizeUp">ourbox</span></a><br><br>
         	
         	<!-- mem_id 받아서 리스트서블렛으로 보냄 -->
-<%--         	<iframe id="mygroup" src="localhost/room/list?mem_id=${S_MEMBER.mem_id}" target="group" name="mygroup" frameborder="0" scrolling="no" onload="resizeIframe(this)"></iframe><br> --%>
-			<c:import url="/room/list" charEncoding="utf-8">
-				<c:param name="memberVo">${S_MEMBER}</c:param>
-			</c:import>
+<%--         	<iframe id="mygroup" src="<%=request.getContextPath()%>/RoomListController?memId=${S_MEMBER.mem_id}" target="group" name="mygroup" frameborder="0" scrolling="no" onload="resizeIframe(this)"></iframe><br> --%>
+<%-- 			<%@include file="/WEB-INF/views/layout/listRoom.jsp" %> --%>
+<%-- 			<c:import url="/room/list"/> --%>
+<%-- 			<jsp:include page="/room/list"/> --%>
+			<c:import url="localhost/room/list"/>
+			
         	<!-- 그룹추가버튼  -->
         	<span id="groupadd" class="bold sizeUp"> + GROUP 생성</span>
         	
@@ -347,6 +349,8 @@
      		&nbsp;&nbsp;&nbsp;&nbsp;<a href="/ourbox/MemberQnaPageListController?memId=${S_MEMBER.mem_id}" target="ifr"><span class='bold'>도움말 및 QnA</span></a>
         	<br><br>
 	        <iframe src="<%=request.getContextPath()%>/DriveSizeController?memId=${S_MEMBER.mem_id}" name="capacity" id="capacity" >
+	        
+	        
 	        </iframe>
 
         </div>
@@ -357,8 +361,7 @@
     <section id="main">
         <article id="article1">
         
-        <iframe id="mainFrame" src="/ourbox/noticeList" name="ifr">
-        </iframe>
+        <iframe id="mainFrame" src="/ourbox/noticeList" name="ifr"> </iframe>
         
         </article>
         

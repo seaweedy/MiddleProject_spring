@@ -11,6 +11,25 @@
 		and mem_pass = #{mem_pass}
 		and mem_status = '0'
 	</select>
+	
+	<select id="searchMember" parameterType="enterVO" resultType="memberVO">
+		select mem_id
+		from member 
+		where mem_id like '%'|| #{mem_id} || '%'
+		and mem_status = '0'
+		
+		minus
+		
+		select mem_id
+		from enter
+		where mem_id like '%' || #{mem_id} || '%'
+		and room_seq = #{room_seq}
+	</select>
+	
+	<insert id = "enterGroup" parameterType="enterVO">
+		insert into enter (room_seq, mem_id, enter_status)
+		values (#{room_seq}, #{mem_id}, '0')
+	</insert>
 </mapper>			
 
 

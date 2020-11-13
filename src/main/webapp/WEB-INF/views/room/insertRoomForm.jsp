@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%String mem_id = request.getParameter("memId"); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,12 +9,17 @@
 <link rel="stylesheet" href="/ourbox/css/public.css">
 <title>Insert title here</title>
 <script type="text/javascript">
+function insert() {
+    var frm = document.form1;
+
+    //     spring에 매핑되는 modelAndView             
+    frm.action="<%=request.getContextPath()%>/room/insertRoom"; 
+    frm.submit();
+	opener.parent.location.reload();
+	self.close();
+}
 $(function(){
-   $('#subtn').on('click',function(){
-      opener.parent.location.reload(); // 부모창 새로고침
-   })
    $('#quit').on('click',function(){
-      window.close();
    })
 })
 </script>
@@ -84,18 +88,18 @@ $(function(){
 
 <div id='box'>
 
-   <img src="/ourbox/images/door.png">
+   <img src="/images/door.png">
    <h4>GRUOP 생성</h4>
    <br><br>
-   <form action="<%=request.getContextPath()%>/RoomInsertController" method="post" id = "form1">
+   <form action="<%=request.getContextPath()%>/room/insertRoom" method="post" id = "form1" name="form1">
       <div>
          <label class='la'>GROUP 이름 :</label><input type="text" id="room_name" name ="room_name"><br>
          <label class='la'>GROUP 설명 :</label>
          
          <input type = "text" id="room_content" name = "room_content"><br>
-         <input type="hidden" id="mem_id" name = "mem_id" value = "<%=mem_id%>">
+         <input type="hidden" id="mem_id" name = "mem_id" value = "${S_MEMBER.mem_id }">
          
-         <input class='ibut' type="submit" id ="subtn" value = "생성"> &nbsp;&nbsp;
+         <input class='ibut' type="button" id ="subtn" value = "생성" onclick="javascript:insert();"> &nbsp;&nbsp;
          <input class='ibut' type="button" id ="quit" value="취소">
       </div>
    </form>

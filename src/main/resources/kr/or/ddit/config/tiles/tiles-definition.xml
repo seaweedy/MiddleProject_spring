@@ -7,10 +7,11 @@
 		 2. 개별 페이지에 대한 컨텐츠 영역설정
 		 
 	 -->
-	<definition name="basic.layout" template="/WEB-INF/views/layout/layout.jsp">
+	<definition name="basic.layout" template="/WEB-INF/views/layout/ourboxmember.jsp">
 		<put-attribute name="header" value="/WEB-INF/views/layout/header.jsp"/>
 		<put-attribute name="left" value="/WEB-INF/views/layout/left.jsp"/>
 		<put-attribute name="content" value=""/>
+		<put-attribute name="roomlist" value=""/>
 	</definition>
 	<!-- 상속을 통해 basic.layout에 설정된 header, left의 기본값을 사용하게 되며
 		만약 변경을 원하면 해당 속성을 다른 값으로 설정하면 된다.
@@ -32,5 +33,8 @@
 		 -->
 	<definition name="tiles/*/*" extends="basic.layout">
 		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"></put-attribute>
+	</definition>
+	<definition name="tiles/room/*" extends="basic.layout">
+		<put-attribute name="roomlist" value="/WEB-INF/views/{1}.jsp"></put-attribute>
 	</definition>
 </tiles-definitions>

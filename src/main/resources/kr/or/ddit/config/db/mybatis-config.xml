@@ -35,6 +35,6 @@
 <!--     <mapper resource="kr/or/ddit/config/db/mapper/planuse.xml"/> -->
 <!--     <mapper resource="kr/or/ddit/config/db/mapper/qna.xml"/> -->
 <!--     <mapper resource="kr/or/ddit/config/db/mapper/reply.xml"/> -->
-<!--     <mapper resource="kr/or/ddit/config/db/mapper/room.xml"/> -->
+    <mapper resource="kr/or/ddit/config/db/mapper/room.xml"/>
   </mappers>
 </configuration>

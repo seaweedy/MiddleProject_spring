@@ -2,23 +2,19 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-	List<MemberVO> otherList = (List<MemberVO>)request.getAttribute("otherList");
-	String mem_id = (String)request.getAttribute("memId");
-	int room_seq = (Integer)request.getAttribute("roomSeq");
-%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script>
 	$(function(){
 		$('.someOne').on('click',function(event){
 			otherId = $(this).attr('other');
-			roomSeq = $('#roomSeq').val();
+			room_seq = $('#roomSeq').val();
 			event.preventDefault(); //
 			$.ajax({
-				url:'/ourbox/MemberInviteController',
+				url:'/room/invite',
 				type:'get',
 				data:{
 					"other" : otherId,
-					"roomSeq" : roomSeq
+					"room_seq" : room_seq
 				},
 				success : function(res){
 					opener.document.location.reload();
@@ -41,23 +37,22 @@
 		text-align: right;
 	}
 </style>
-	<input type="hidden" id ="roomSeq" name ="roomSeq" value="<%=room_seq%>" >
-<%
-		if(otherList.size()>0){
-			for(int i=0; i<otherList.size();i++){
-				if(!(otherList.get(i).getMem_id().equals(mem_id))){
-%>			
-			<div class='di2'>
-			<input id="someOneId" class="others" type="hidden" value ="<%=otherList.get(i).getMem_id()%>" name = "otherId" >&nbsp;<%=otherList.get(i).getMem_id() %>
-			<input class ="someOne" type="button" other ="<%=otherList.get(i).getMem_id() %>" value="초대"></div>
-<%
-				}
-			}
-		} else { // 검색된 회원 정보가 없을 경우
-%>
-		<div>
-			일치하는 회원이 존재하지 않습니다.
-		</div>
-<%
-		}
-%>	
+	<input type="hidden" id ="roomSeq" name ="roomSeq" value="${room_seq }" >
+	<c:choose>
+		<c:when test="${otherList.size()>0 }">
+			<c:forEach items="${otherList }" var="other">
+				<c:choose>
+					<c:when test="${other != mem_id }">
+						<div class='di2'>
+						<input id="someOneId" class="others" type="hidden" value ="${other.mem_id}" name = "otherId" >&nbsp;"${other.mem_id}"
+						<input class ="someOne" type="button" other ="${other.mem_id}" value="초대"></div>
+					</c:when>
+				</c:choose>
+			</c:forEach>
+		</c:when>
+		<c:otherwise>
+			<div>
+				일치하는 회원이 존재하지 않습니다.
+			</div>
+		</c:otherwise>
+	</c:choose>

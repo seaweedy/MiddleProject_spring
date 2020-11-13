@@ -4,41 +4,33 @@
     pageEncoding="UTF-8"%>
     <%
     	request.setCharacterEncoding("UTF-8");
-
-            	String room_seq = (String)request.getParameter("roomSeq");
-            	String mem_id = (String)request.getParameter("memId");
-            	
-            	MemberVO ol;
-            	if(room_seq ==null){
-            		room_seq = "";
-            	}
     %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="/ourbox/css/public.css">	
+<link rel="stylesheet" href="/css/public.css">	
 
 
-<script src="/ourbox/js/jquery-3.5.1.min.js"></script>
+<script src="/js/jquery-3.5.1.min.js"></script>
 
 
 <script>
 	$(function(){
 		$('#findbtn').on('click',function(event){ // 검색
-			roomSeq = $('#roomSeq').val();
+			room_seq = $('#roomSeq').val();
 			other = $('#other').val();
-			memId = $('#memId').val();
+			mem_id = $('#memId').val();
 			
 			event.preventDefault();
 			$.ajax({
-				url:'/ourbox/MemberOtherListController',
+				url:'/room/otherList',
 				type:'get',
 				data:{
-					"roomSeq": roomSeq,
+					"room_seq": room_seq,
 					"other" : other,
-					"memId" : memId
+					"mem_id" : mem_id
 				},
 				success: function(res){
 					console.log(res);
@@ -117,7 +109,7 @@
 </head>
 <body onresize="parent.resizeTo(345,390)" onload="parent.resizeTo(345,390)">
 		
-		<img alt="그룹초대 아이콘.png" src="/ourbox/images/그룹초대 아이콘.png"><span class="bold">초대할 회원의 ID를 입력해주세요</span>
+		<img alt="그룹초대 아이콘.png" src="/images/그룹초대 아이콘.png"><span class="bold">초대할 회원의 ID를 입력해주세요</span>
 		
 		<div id="menu">
 		<input type ="text" id="other" name="other">
@@ -125,9 +117,9 @@
 		</div>
 		<hr>
 		
-	<form name = "invite" method="get" action="/ourbox/RoomInviteController">
-		<input type="hidden" id="roomSeq" name="roomSeq" value="<%=room_seq%>"> 
-		<input type="hidden" id="memId" name="memId" value="<%=mem_id%>">
+	<form name = "invite" method="get" action="/room/RoomInviteController">
+		<input type="hidden" id="roomSeq" name="roomSeq" value="${room_seq }"> 
+		<input type="hidden" id="memId" name="memId" value="${memId} }">
 		<table id="ohterList">
 		
 		</table>

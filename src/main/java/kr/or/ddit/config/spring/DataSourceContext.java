@@ -28,6 +28,8 @@ public class DataSourceContext {
 		<property name="driverClassName" value="${jdbc.driver}"/>
 		<property name="username" value="${jdbc.username}"/>
 		<property name="password" value="${jdbc.password}"/>
+		<property name="maxTotal" value="2"/>
+ 		<property name="maxIdle" value="2"/>
 	</bean>
 	 */
 	// <bean> => @Bean method
@@ -38,6 +40,8 @@ public class DataSourceContext {
 		dataSource.setDriverClassName(env.getProperty("jdbc.driver"));
 		dataSource.setUsername(env.getProperty("jdbc.username"));
 		dataSource.setPassword(env.getProperty("jdbc.password"));
+		dataSource.setMaxTotal(2);
+		dataSource.setMaxIdle(2);
 		return dataSource;
 	}
 	/*

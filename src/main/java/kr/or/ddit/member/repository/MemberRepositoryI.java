@@ -1,5 +1,8 @@
 package kr.or.ddit.member.repository;
 
+import java.util.List;
+
+import kr.or.ddit.common.vo.EnterVO;
 import kr.or.ddit.common.vo.MemberVO;
 
 public interface MemberRepositoryI {
@@ -11,5 +14,9 @@ public interface MemberRepositoryI {
 	 * @return mem_id,mem_pass에 해당하는 MemberVO 객체
 	 */
 	public MemberVO loginMember(MemberVO memberVo);
+	
+	public List<MemberVO> searchMember(EnterVO ev);
+	
+	public int enterGroup(EnterVO enterVo);
 	
 }
