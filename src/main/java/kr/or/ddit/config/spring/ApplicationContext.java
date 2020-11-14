@@ -172,7 +172,8 @@ public class ApplicationContext extends WebMvcConfigurerAdapter{
 	 */
 	@Bean
 	public SessionLocaleResolver sessionLocaleResolver() {
-		return new SessionLocaleResolver();
+		SessionLocaleResolver sessionLocaleResolver = new SessionLocaleResolver();
+		return sessionLocaleResolver;
 	}
 	
 	/*

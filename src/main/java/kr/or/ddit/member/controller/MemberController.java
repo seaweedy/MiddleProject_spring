@@ -29,6 +29,11 @@ public class MemberController {
 		return "main/login";
 	}
 	
+	@RequestMapping("/logout")
+	public String logout() {
+		return"main/logout";
+	}
+	
 	@RequestMapping("/process")
 	public String process(MemberVO memberVo,HttpSession session, Model model) {
 		logger.debug("memberVo.getMem_id : {} " , memberVo.getMem_id());
@@ -39,6 +44,12 @@ public class MemberController {
 		
 		session.setAttribute("S_MEMBER", loginVo);
 		return "ourbox/ourboxmember";
+	}
+	
+	@RequestMapping("/mainFrame")
+	public String mainFrame() {
+		logger.debug("main진입");
+		return"layout/test.jsp";
 	}
 	
 	

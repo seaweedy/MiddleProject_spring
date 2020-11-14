@@ -27,7 +27,7 @@
 <!--     <mapper resource="kr/or/ddit/config/db/mapper/atchFile.xml"/> -->
 <!--     <mapper resource="kr/or/ddit/config/db/mapper/board.xml"/> -->
 <!--     <mapper resource="kr/or/ddit/config/db/mapper/chat.xml"/> -->
-<!--     <mapper resource="kr/or/ddit/config/db/mapper/drive.xml"/> -->
+    <mapper resource="kr/or/ddit/config/db/mapper/drive.xml"/>
     <mapper resource="kr/or/ddit/config/db/mapper/member.xml"/>
 <!--     <mapper resource="kr/or/ddit/config/db/mapper/memo.xml"/> -->
 <!--     <mapper resource="kr/or/ddit/config/db/mapper/notice.xml"/> -->

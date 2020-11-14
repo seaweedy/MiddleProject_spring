@@ -47,12 +47,13 @@
 		
 		$('#deleteGroup').on('click', function() {
 			
+			alert("딜리트");
 			$('.contextmenu').hide();
 			
 			event.stopPropagation()
 			memId = "${S_MEMBER.mem_id}"
-			location.href="/ourbox/RoomDeleteController?roomSeq=" + roomSeq+"&memId="+memId;
-			parent.document.location.reload()// 새로고침
+			location.href="/room/deleteRoom?room_seq=" + roomSeq+"&mem_id="+memId;
+// 			parent.document.location.reload()// 새로고침
 		})
 	})
 	

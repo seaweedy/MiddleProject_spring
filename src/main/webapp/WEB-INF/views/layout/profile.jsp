@@ -25,7 +25,7 @@
 			}
 		})
 		$('#logout').on('click',function(){
-			window.parent.location.href='/ourbox/view/main/logout.jsp'
+			window.parent.location.href='/login/logout'
 		})
 		
 		$('#proimg').on('click', function() {

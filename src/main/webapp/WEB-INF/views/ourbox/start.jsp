@@ -5,7 +5,7 @@
 
 <%
 
-	List<NoticeVO> noticeList = (List<NoticeVO>) request.getAttribute("noticeList");
+// 	List<NoticeVO> noticeList = (List<NoticeVO>) request.getAttribute("noticeList");
 
 %>
 
@@ -65,19 +65,19 @@
 			<div class="panel-heading" >
 				<h4 class="panel-title"">
 			       <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-			       <img id='noticeIcon' alt="공지아이콘.png" src="/ourbox/images/공지아이콘.png">&nbsp;
-			       <span class='bold'><%= noticeList.get(0).getNotice_title() %></span>
+			       <img id='noticeIcon' alt="공지아이콘.png" src="/images/공지아이콘.png">&nbsp;
+<%-- 			       <span class='bold'><%= noticeList.get(0).getNotice_title() %></span> --%>
 			       </a>
 			    </h4>
 			</div>
 		<div id="collapse1" class="panel-collapse collapse">
-			<div class="panel-body"><%= noticeList.get(0).getNotice_content().replaceAll("\\n", "<br>")%></div>
+<%-- 			<div class="panel-body"><%= noticeList.get(0).getNotice_content().replaceAll("\\n", "<br>")%></div> --%>
 			</div>
 		</div>
 	  </div> 
 	</div>
 <hr>
-	<img src="/ourbox/images/ourbox_main.png" style="margin-left: 120px; margin-top: 20px;">
+	<img src="/images/ourbox_main.png" style="margin-left: 120px; margin-top: 20px;">
 	
 
 

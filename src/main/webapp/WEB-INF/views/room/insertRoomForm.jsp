@@ -9,17 +9,48 @@
 <link rel="stylesheet" href="/ourbox/css/public.css">
 <title>Insert title here</title>
 <script type="text/javascript">
-function insert() {
-    var frm = document.form1;
 
-    //     spring에 매핑되는 modelAndView             
-    frm.action="<%=request.getContextPath()%>/room/insertRoom"; 
-    frm.submit();
-	opener.parent.location.reload();
-	self.close();
-}
+$(function(){
+	$("#subtn").on("click",function(event){
+		room_name = $('#room_name').val();
+		room_content = $("#room_content").val();
+		mem_id = $("#mem_id").val();
+
+// 		event.preventDefault();
+		$.ajax({
+			url:'/room/insertRoom',
+			type:'get',
+			data:{
+				"mem_id":mem_id,
+				"room_name" : room_name,
+				"room_content": room_content
+				},
+				success : function(res){
+					opener.document.location.reload();
+					self.close();
+				},
+				error : function(xhr){
+					alert("그룹생성에 실패했습니다." + xhr.stats)
+				}
+
+		})
+			
+
+	})
+
+})
+// function insert() {
+//     var frm = document.form1;
+
+//     //     spring에 매핑되는 modelAndView             
+<%--     frm.action="<%=request.getContextPath()%>/room/insertRoom";  --%>
+//     frm.submit();
+// 	opener.parent.location.reload();
+// 	self.close();
+// }
 $(function(){
    $('#quit').on('click',function(){
+	   self.close();
    })
 })
 </script>
@@ -99,7 +130,7 @@ $(function(){
          <input type = "text" id="room_content" name = "room_content"><br>
          <input type="hidden" id="mem_id" name = "mem_id" value = "${S_MEMBER.mem_id }">
          
-         <input class='ibut' type="button" id ="subtn" value = "생성" onclick="javascript:insert();"> &nbsp;&nbsp;
+         <input class='ibut' type="button" id ="subtn" value = "생성"> &nbsp;&nbsp;
          <input class='ibut' type="button" id ="quit" value="취소">
       </div>
    </form>

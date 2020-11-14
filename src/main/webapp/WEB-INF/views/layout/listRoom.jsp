@@ -14,36 +14,6 @@
 <script src="/js/rightmouse.js"></script>
 
 <script type="text/javascript">
-
-// 	$(function() {
-		
-// 			memId = "${S_MEMBER.mem_id}"
-		
-// 		$('.panel-title').mousedown(function() {
-// 			event.stopPropagation()
-// 			//$('.contextmenu').show();
-// 			roomSeq = $(this).attr('roomSeq');
-// 		})
-		
-// 		$('#inviteMember').on('click', function() {
-// 			alert("111")
-// 			$('.contextmenu').hide();
-			
-// 			// 우클릭시 해당 그룹의 room_seq들고 보내야함
-// 			event.stopPropagation()
-// 			window.open("localhost/room/inviteView?room_eq="+${room.room_seq }+"&memId="+${S_MEMBER.mem_id}, "회원초대", "width = 300, height = 350, top = 100, left = 200, location = no");
-// 		})
-		
-// 		$('#deleteGroup').on('click', function() {
-// 			alert("111")
-// 			$('.contextmenu').hide();
-			
-// 			event.stopPropagation()
-// 			memId = "${S_MEMBER.mem_id}"
-// 			location.href="/ourbox/RoomDeleteController?roomSeq=" + ${room.room_seq }+"&memId="+${S_MEMBER.mem_id};
-// 			parent.document.location.reload()// 새로고침
-// 		})
-// 	})
 	$(function() {
 		
 			memId = "${S_MEMBER.mem_id}"
@@ -66,11 +36,10 @@
 		$('#deleteGroup').on('click', function() {
 			
 			$('.contextmenu').hide();
-			
+
 			event.stopPropagation()
 			memId = "${S_MEMBER.mem_id}"
 			location.href="/room/deleteRoom?room_seq=" + roomSeq + "&mem_id="+memId;
-			parent.document.location.reload()// 새로고침
 		})
 	})
 	

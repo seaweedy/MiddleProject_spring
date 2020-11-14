@@ -46,9 +46,8 @@ public class RoomController {
 	}
 	
 	@RequestMapping("/insertRoom")
-	public void inviteList(RoomVO roomVo, String mem_id, Model model) {
+	public String inviteList(RoomVO roomVo, String mem_id, Model model) {
 		String room_content = roomVo.getRoom_content();
-		logger.debug("룸전체 {}", roomVo);
 		logger.debug("룸 내용 {}", room_content);
 		String room_name = roomVo.getRoom_name();
 		logger.debug("룸 이름 {}", room_name);
@@ -66,6 +65,7 @@ public class RoomController {
 		if(insertRoomCnt>0) {
 			roomService.insertEnter(enterVo);
 		}
+		return "jsonView";
 	}
 	
 	@RequestMapping("/inviteView")
@@ -109,11 +109,12 @@ public class RoomController {
 	
 	@RequestMapping("/deleteRoom")
 	public String deleteRoom(EnterVO enterVo, Model model) {
+		
 		enterVo.setMem_id(enterVo.getMem_id());
 		enterVo.setRoom_seq(enterVo.getRoom_seq());
 		
 		roomService.deleteRoom(enterVo);
 		
-		return "redirect:ourbox/ourboxmember";
+		return "ourbox/ourboxmember";
 	}
 }

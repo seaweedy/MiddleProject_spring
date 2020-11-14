@@ -346,7 +346,7 @@
      		&nbsp;&nbsp;&nbsp;&nbsp;<a href="/ourbox/GargabegeListController?memId=${S_MEMBER.mem_id}" target="ifr"><span class='bold' >휴지통</span></a><br>
      		&nbsp;&nbsp;&nbsp;&nbsp;<a href="/ourbox/MemberQnaPageListController?memId=${S_MEMBER.mem_id}" target="ifr"><span class='bold'>도움말 및 QnA</span></a>
         	<br><br>
-	        <iframe src="<%=request.getContextPath()%>/DriveSizeController?memId=${S_MEMBER.mem_id}" name="capacity" id="capacity" >
+	        <iframe src="<%=request.getContextPath()%>/drive/size?mem_id=${S_MEMBER.mem_id}" name="capacity" id="capacity" >
 	        </iframe>
 
         </div>
@@ -357,8 +357,11 @@
     <section id="main">
         <article id="article1">
         
-        <iframe id="mainFrame" src="/ourbox/noticeList" name="ifr">
-        </iframe>
+<!--         <iframe id="mainFrame" src="localhost/login/mainFrame" name="ifr"> -->
+<!--         </iframe> -->
+        <%@ include file="/WEB-INF/views/ourbox/start.jsp" %>
+        
+        
         
         </article>
         
